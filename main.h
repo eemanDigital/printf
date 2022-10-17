@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _PRINTF_H_
+#define _PRINTF_H_
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -40,14 +40,17 @@
 
 typedef struct parameters
 {
-	unsigned int unsign		: 1;
+	unsigned int unsign			: 1;
+
 	unsigned int plus_flag		: 1;
 	unsigned int space_flag		: 1;
 	unsigned int hashtag_flag	: 1;
 	unsigned int zero_flag		: 1;
 	unsigned int minus_flag		: 1;
+
 	unsigned int width;
 	unsigned int precision;
+
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
 } params_t;
@@ -74,9 +77,6 @@ int print_int(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 int print_S(va_list ap, params_t *params);
-
-/* printnp.c */
-int print_n(va_list l, flag_t *f)
 
 /* number.c module */
 char *convert(long int num, int base, int flags, params_t *params);
@@ -117,4 +117,4 @@ char *get_precision(char *p, params_t *params, va_list ap);
 /* _prinf.c module */
 int _printf(const char *format, ...);
 
-#endif
+#endif /*_MAIN_H_*/
